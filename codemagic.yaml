@@ -1,0 +1,28 @@
+workflows:
+  android-build:
+    name: MD Player Android Build
+    max_build_duration: 60
+    instance_type: mac_mini_m1
+    environment:
+      flutter: stable
+      java: 17
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: main
+          include: true
+    scripts:
+      - name: Get Flutter packages
+        script: | 
+          flutter pub get
+      - name: Build APK
+        script: | 
+          flutter build apk --release
+    artifacts:
+      - build/app/outputs/flutter-apk/*.apk
+    publishing:
+      email:
+        recipients:
+          - test@test.com
+          

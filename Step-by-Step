@@ -1,0 +1,9 @@
+import 'package:flutter/material.dart';
+import 'home_page.dart'; // جو فائل آپ نے ابھی بنائی تھی
+
+void main() {
+  runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: MDHomePage(), // آپ کا نیا اوپن ہوم پیج
+  ));
+}
